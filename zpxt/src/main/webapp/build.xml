@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<project name="csgbase" default="default" basedir="..">
+
+	<property name="dir.src" value="src" />
+	<property name="dir.webRoot" value="web" />
+	<property name="dir.classes" value="${dir.web}/WEB-INF/classes"/>
+	<property name="dir.dist" value="dist" />
+	<property name="dir.building" value="${dir.dist}/building"/>
+	<property name="war.name" value="csgbase" />
+
+	<!-- 本地开发打包  -->
+	<target name="default" >
+		<delete dir="${dir.building}"/>
+		<mkdir dir="${dir.building}"/>
+		<mkdir dir="${dir.dist}" />
+		<copy todir="${dir.building}">
+			<fileset dir="${dir.webRoot}">
+				<include name="**/*.*" />
+				<exclude name="CVS" />
+				<exclude name=".svn" />
+			</fileset>
+		</copy>
+		
+		<tstamp />
+		<!-- 整个web应用打包 -->
+		<jar destfile="${dir.dist}/${war.name}_local_${DSTAMP}.war" basedir="${dir.building}">
+			<exclude name="**/.*" />
+			<exclude name="CVS" />
+			<exclude name=".svn" />
+		</jar>
+		
+		<!--删除build目录-->
+		<delete dir="${dir.building}" />
+	</target>
+	
+</project>
