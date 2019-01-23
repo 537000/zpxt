@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
@@ -8,9 +9,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>欢迎来到招聘系统</title>
+<title>欢迎来到Mlxg人力招聘系统</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="js/jquery-1.7.2.min.js"></script>
+<script language="JavaScript" src="${ctx}/js/jquery-1.7.2.min.js"></script>
 <script src="js/cloud.js" type="text/javascript"></script>
 
 <script language="javascript">
@@ -40,13 +41,11 @@
     <ul>
     <li><input name="username" id="username" type="text" class="loginuser"  onclick="JavaScript:this.value=''"/></li>
     <li><input name="password" id="password"  type="password" class="loginpwd"  onclick="JavaScript:this.value=''"/></li>
-    <li><select id="type" name="type" class="loginuser">
-    	<option value="ypr">应聘者</option>
-    	<option value="yg">普通员工</option>
-    	<option value="jl">部门经理</option>
-    	<option value="zpgl">招聘管理</option>
-    </select></li>
-    <li><input name="" type="button" class="loginbtn" value="登陆"  onclick="Submit();"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label></li>
+    <li>
+   		<input name="yp" type="button" class="loginbtn" value="我要应聘"  onclick="yp();"  />
+	    <input name="login" type="button" class="ypbtn" value="登陆"  onclick="Submit();"  />
+	    <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
+    </li>
     </ul>
     
     
@@ -87,6 +86,10 @@
 					}
 				}
 			}); 
+		}
+	   
+	   function yp(){
+		   location.href = basePath + "/index";
 		}
 	</script> 
 </body>

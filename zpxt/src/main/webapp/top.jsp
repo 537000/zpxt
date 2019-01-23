@@ -28,14 +28,13 @@ $(function(){
 <body style="background:url(images/topbg.gif) repeat-x;">
 
     <div class="topleft">
-      <a href="<%=basePath %>/DesignController/getList.do" target="frame-contect"><img src="images/logo.png" title="系统首页" /></a>
+      <a href="javascript:showZpgwxx()" target="frame-contect"><img src="images/logo.png" title="系统首页" /></a>
     </div>
         
     <ul class="nav">
-    <li><a href="<%=basePath %>/DesignController/getList.do" target="frame-contect" class="selected"><img src="images/icon01.png" title="设计单" /><h2>设计单</h2></a></li>
-    <li><a href="<%=basePath %>/orderManager/getList.do" target="frame-contect"><img src="images/icon05.png" title="服装订单" /><h2>服装订单</h2></a></li>
-    <li><a href="<%=basePath %>/FinancialController/getList.do"  target="frame-contect"><img src="images/icon03.png" title="财务管理" /><h2>财务管理</h2></a></li>
-    <li><a href="<%=basePath %>/StoreController/getList.do"  target="frame-contect"><img src="images/icon02.png" title="服装库存" /><h2>服装库存</h2></a></li>
+    <li><a href="javascript:showZpgwxx()" target="frame-contect"><img src="images/icon01.png" title="招聘岗位信息" /><h2>招聘岗位信息</h2></a></li>
+    <li><a href="javascript:getEmployee()"  target="frame-contect"><img src="images/icon03.png" title="员工信息" /><h2>员工信息</h2></a></li>
+    <li><a href="javascript:getYpxx()"  target="frame-contect"><img src="images/icon02.png" title="应聘信息" /><h2>应聘信息</h2></a></li>
    <!-- <li><a href="computer.html" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
     <li><a href="tab.html"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>-->
    
