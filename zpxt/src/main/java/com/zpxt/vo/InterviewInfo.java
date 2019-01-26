@@ -1,42 +1,22 @@
-package com.zpxt.pojo;
+package com.zpxt.vo;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="tb_interview")
-public class Interview implements Serializable{
+public class InterviewInfo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id@Column(name="interview_no")@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int interviewNo;
-	@Column(length=50,name="interview_addr")
 	private String interviewAddr;
-	@Column(length=20,name="interview_own")
 	private String interviewOwn;
-	@Column(length=100,name="apply_time")
 	private Date applyTime;
-	@Column(length=100,name="pass_time")
 	private Date passTime;
-	@Column(name="interview_state")
 	private int interviewState;
-	@Column(length=20,name="interview_user")
 	private String interviewUser;
-	@Column(length=50,name="email")
 	private String email;
-	@Column(length=20,name="telphone")
 	private String telphone;
-	@Column(length=100,name="work")
 	private String work;
-	@Column(length=20,name="qwxz")
 	private String hope;
 	private String ypzw;
 	private String ypbm;

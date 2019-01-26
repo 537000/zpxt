@@ -1,42 +1,22 @@
-package com.zpxt.pojo;
+package com.zpxt.vo;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="tb_zhaopin")
-public class ZhaoPin implements Serializable{
+public class ZhaoPinInfo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id@Column(name="zp_no")@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int zpNo;
-	@Column(length=20,name="zp_dept")
 	private String zpDept;
-	@Column(length=20,name="zp_job")
 	private String zpJob;
-	@Column(name="zp_Num")
 	private int zpNum;
-	@Column(length=100,name="description")
 	private String description;
-	@Column(name="salary")
 	private Double salary;
-	@Column(length=100,name="work_addr")
 	private String workAddr;
-	@Column(name="last_Date")
 	private Date lastDate;
-	@Column(length=20,name="zp_own")
 	private String zpOwn;
-	@Column(name="zp_state")
 	private int zpState;	
-	@Column(length=100,name="remark")
 	private String remark;
 	public int getZpNo() {
 		return zpNo;

@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,18 +15,18 @@ public class Dept implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id@Column(length=20,name="dept_no")
-	private String deptNo;
+	@Id@Column(name="dept_no")@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int deptNo;
 	@Column(length=20,name="dept_name")
 	private String deptName;
 	@Column(name="dept_own")
 	private String deptOwn;
 	@Column(length=20,name="dept_tel")
 	private String deptTel;
-	public String getDeptNo() {
+	public int getDeptNo() {
 		return deptNo;
 	}
-	public void setDeptNo(String deptNo) {
+	public void setDeptNo(int deptNo) {
 		this.deptNo = deptNo;
 	}
 	public String getDeptName() {

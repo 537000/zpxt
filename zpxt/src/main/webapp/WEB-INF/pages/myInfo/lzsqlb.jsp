@@ -29,54 +29,45 @@
 	  <input name="allIDCheck" hidden="hidden" id="allIDCheck"/>
 		<div id="container">
 			<div class="ui_content">
-				<div class="ui_text_indent">
+				<%-- <div class="ui_text_indent">
 					<div id="box_border">
 						<div id="box_center">
-						     招聘职位&nbsp;&nbsp;<input type="text" id="job" name="job" class="ui_input_txt02" value="${job}"/>
-						     薪资范围&nbsp;&nbsp;<input type="text" id="money" name="money" class="ui_input_txt02" value="${money}"/>
+						    员工姓名&nbsp;&nbsp;<input type="text" id="userName" name="userName" class="ui_input_txt02" value="${job}"/>
 						</div>
 						<div id="box_bottom">
 							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
-							<c:if test="${user.jobNo==8||user.deptNo==4}">
-								<input type="button" value="发布" class="ui_input_btn01" id="addBtn" /> 
-								<input type="button" value="编辑" class="ui_input_btn01" id="editBtn" /> 
-							</c:if>
-							<c:if test="${user.deptNo==4}">
-								<input type="button" value="删除" class="ui_input_btn01" onclick="batchDel();" /> 
-							</c:if>
 							<!-- <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
 						</div>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 			<div class="ui_content">
 				<div class="ui_tb">
 					<table class="table" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
 						<tr>
-							<th width="30"><input type="checkbox" id="all" onclick="selectOrClearAllCheckbox(this);" />
-							</th>
-							<th>招聘职位</th>
-							<th>招聘人数</th>
-							<th>招聘部门</th>
-							<th>薪资待遇</th>
-							<th>职位描述</th>
-							<th>工作地址</th>
-							<th>招聘截止日期</th>
-							<c:if test="${empty user}"><th>操作</th></c:if>
+							<!-- <th width="30"><input type="checkbox" id="all" onclick="selectOrClearAllCheckbox(this);" />
+							</th> -->
+							<th>员工编号</th>
+							<th>员工姓名</th>
+							<th>员工性别</th>
+							<th>员工职位</th>
+							<th>员工部门</th>
+							<th>离职申请时间</th>
+							<th>操作</th>
 						</tr>
-						  <c:forEach items="${zpxx}" var="ps"  varStatus="i">
+						  <c:forEach items="${lzsqlb}" var="ps"  varStatus="i">
 							<tr>
-								<td><input type="checkbox" name="IDCheck" value="${ps.zpNo}" class="acb" /></td>
-								<td>${ps.zpJob}</td>
-								<td>${ps.zpNum}</td>
-								<td>${ps.zpDept}</td>
-								<td><fmt:formatNumber value="${ps.salary}" pattern="0.00"></fmt:formatNumber></td>
-								<td>${ps.description}</td>
-								<td>${ps.workAddr}</td>
-								<td><fmt:formatDate value="${ps.lastDate}" pattern="yyyy-MM-dd"/></td>
-								<c:if test="${empty user}">
-									<td><input type="button" id="${ps.zpNo}" name="applyButton" value="申请岗位" class="ui_input_btn01" onclick="apply();" /> </td>
-								</c:if>
+								<%-- <td><input type="checkbox" name="IDCheck" value="${ps.userNo}" class="acb" /></td> --%>
+								<td>${ps.userNo}</td>
+								<td>${ps.userName}</td>
+								<td>${ps.userSex}</td>
+								<td>${ps.jobNo}</td>
+								<td>${ps.deptNo}</td>
+								<td><fmt:formatDate value="${ps.lzsqTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+								<td>
+									<input type="button" value="通过" class="ui_input_btn01" onclick="pass(${ps.userNo});" />
+									<input type="button" value="不通过" class="ui_input_btn01" onclick="unpass(${ps.userNo});" />
+								</td>
 							</tr>
 						  </c:forEach>
 					</table>
@@ -92,8 +83,32 @@
   <script>
 	   var basePath = "<%=basePath%>";
 	   
-	   function apply(){
-		   location.href = basePath + "/apply?jobNo="+$("input[name=applyButton]").attr("id");
+	   function pass(userNo){
+		   $.ajax({ 
+	            type: "POST", 
+	            data:{"userNo":userNo},
+	            url: basePath+"/lzPass", 
+	            success: function(data){    
+	            	  if("操作成功"==data){
+	            		  window.location.href=basePath+"/lzsqlb";
+	            	  }
+	            	  alert(data);
+	            } 
+     		  });  
 		}
+	   
+	   function unpass(userNo){
+		   $.ajax({ 
+	            type: "POST", 
+	            data:{"userNo":userNo},
+	            url: basePath+"/lzUnpass", 
+	            success: function(data){    
+	            	if("操作成功"==data){
+	            		  window.location.href=basePath+"/lzsqlb";
+	            	  }
+	            	  alert(data);
+	            } 
+    		  }); 
+	   }
 	</script> 
 </html>

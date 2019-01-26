@@ -42,8 +42,15 @@
     <li><input name="username" id="username" type="text" class="loginuser"  onclick="JavaScript:this.value=''"/></li>
     <li><input name="password" id="password"  type="password" class="loginpwd"  onclick="JavaScript:this.value=''"/></li>
     <li>
-   		<input name="yp" type="button" class="loginbtn" value="我要应聘"  onclick="yp();"  />
-	    <input name="login" type="button" class="ypbtn" value="登陆"  onclick="Submit();"  />
+    	<select id="loginType" name="loginType" class="logintype">
+    		<option value="1">员工</option>
+    		<option value="2">经理</option>
+    	</select>
+    </li>
+    
+    <li>
+	    <input name="login" type="button" class="loginbtn" value="登陆"  onclick="Submit();"  />
+	    <input name="yp" type="button" class="ypbtn" value="我要应聘"  onclick="yp();"  />
 	    <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
     </li>
     </ul>
@@ -57,6 +64,7 @@
 	   var Submit = function(){
 		    var username = $("#username").val();
 			var pwd = $("#password").val();
+			var logintype = $("#loginType").val();
 			if (!username) {
 				alert("请输入用户名");
 				return;
@@ -65,24 +73,24 @@
 				alert("请输入密码");
 				return;
 			}
-			var surl = basePath + "/LoginController/login.do";
+			var surl = basePath + "/login";
 			var stype = "post";
 			var asyn = true;
 			var josnParams = {};
 			josnParams.username = username;
 			josnParams.password = pwd;
+			josnParams.logintype = logintype;
 			
 		 	$.ajax({
 				url : surl,
 				type : stype,
 				async : asyn,
 				data : josnParams,
-				success : function(retData) {
-					var data = JSON.parse(retData);
-					if (data.code == 1) {
-						location.href = basePath + "/"+"index.jsp";
+				success : function(data) {
+					if (data=="success") {
+						location.href = basePath + "/"+"index";
 					} else {
-						alert(data.msg);
+						alert(data);
 					}
 				}
 			}); 
