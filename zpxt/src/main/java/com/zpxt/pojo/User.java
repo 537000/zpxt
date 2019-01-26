@@ -5,10 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_user")
+//@IdClass(value =com.zpxt.pojo.)
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -25,11 +27,11 @@ public class User implements Serializable{
 	private String work;
 	@Column(length=100,name="xueli")
 	private String xueli;
-	@Id@Column(length=20,name="user_dept")
+	@Column(length=20,name="user_dept")
 	private String deptNo;
-	@Id@Column(length=20,name="user_job")
+	@Column(length=20,name="user_job")
 	private String jobNo;
-	@Id@Column(length=20,name="user_interview")
+	@Column(length=20,name="user_interview")
 	private String interviewNo;
 	@Column(length=50,name="user_email")
 	private String email;
