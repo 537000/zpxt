@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
@@ -83,3 +83,4 @@
 	<p class="microsoft marquee">${user.state}</p>
 </body>
 </html>
+>>>>>>> ee633ab9cca1610efdbd91fb80b08d82f0e0d912

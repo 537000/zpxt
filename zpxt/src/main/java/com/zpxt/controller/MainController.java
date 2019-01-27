@@ -11,13 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zpxt.pojo.Interview;
 import com.zpxt.pojo.User;
 import com.zpxt.service.ZhaoPinService;
 import com.zpxt.vo.ApplyJobInfo;
 import com.zpxt.vo.InterviewInfo;
 import com.zpxt.vo.UserInfo;
 import com.zpxt.vo.ZhaoPinInfo;
+
+
 
 @Controller
 public class MainController {
