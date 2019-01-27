@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.zpxt.pojo.User;
 import com.zpxt.pojo.ZhaoPin;
 
-@Repository
+
 public interface  UserInfoListRespository extends JpaRepository<User, String> {
-         public int updateUserStatus(String user_no,String status);
+       //  public int updateUserStatus(String user_no,String status);
 
 }

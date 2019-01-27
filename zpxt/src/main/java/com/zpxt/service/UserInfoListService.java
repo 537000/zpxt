@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.zpxt.pojo.User;
 import com.zpxt.repository.UserInfoListRespository;
 
-@Service
+
 public class UserInfoListService {
     List<User> list;
 	@Resource
@@ -17,7 +17,7 @@ public class UserInfoListService {
 
 	public int updateUserStatus(String user_no,String status) {
 		try {
-			userInfoListRespository.updateUserStatus(user_no,status);
+			//userInfoListRespository.updateUserStatus(user_no,status);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -25,7 +25,7 @@ public class UserInfoListService {
 	}
 
 	public List<User> findAll() {
-		userInfoListRespository.findAll();
+		//userInfoListRespository.findAll();
 		return list;
 	}
 
