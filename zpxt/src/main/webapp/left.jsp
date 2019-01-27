@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
@@ -32,6 +32,7 @@
 			}
 		});
 	})
+	
 </script>
 
 
@@ -45,9 +46,15 @@
 	<dl class="leftmenu">
 			<dd>
 				<ul class="menuson" id=" menuson">
-					<li class="active"><cite></cite><a href="javascript:getZpxx()" target="frame-contect">招聘岗位信息</a><i></i></li>
-					<li class="active"><cite></cite><a href="javascript:getEmployee()" target="frame-contect">员工信息</a><i></i></li>
-					<li class="active"><cite></cite><a href="javascript:getYpxx()" target="frame-contect">应聘信息</a><i></i></li>
+				<li class="active"><cite></cite><a href="<%=basePath%>/showZpgwxx" target="frame-contect">岗位信息</a><i></i></li>
+					<c:if test="${not empty user}">
+						<li class="active"><cite></cite><a href="<%=basePath%>/myInfo" target="frame-contect">个人信息</a><i></i></li>
+						<li class="active"><cite></cite><a href="<%=basePath%>/ygxx" target="frame-contect">员工信息</a><i></i></li>
+					</c:if>
+					<c:if test="${user.jobNo==8||user.deptNo==4}">
+						<li class="active"><cite></cite><a href="<%=basePath%>/lzsqlb" target="frame-contect">离职申请列表</a><i></i></li>
+						<li class="active"><cite></cite><a href="<%=basePath%>/ypxx" target="frame-contect">应聘信息</a><i></i></li>
+					</c:if>
 				</ul>
 			</dd>
 			<dd></dd>
