@@ -9,7 +9,8 @@ import com.zpxt.pojo.ZhaoPin;
 
 
 @Repository
-public interface ZhaoPinRepository extends JpaRepository<ZhaoPin, String> {
+public interface ZhaoPinRepository extends JpaRepository<ZhaoPin, Integer> {
 
 	public List<ZhaoPin> findByZpState(int zpState);
+	public ZhaoPin findByZpNo(int i);
 }

@@ -37,10 +37,13 @@
 						</div>
 						<div id="box_bottom">
 							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
-							<input type="button" value="投简历" class="ui_input_btn01" onclick="tjl();" />  
-							<input type="button" value="新增" class="ui_input_btn01" id="addBtn" /> 
-							<input type="button" value="编辑" class="ui_input_btn01" id="editBtn" /> 
-							<input type="button" value="删除" class="ui_input_btn01" onclick="batchDel();" /> 
+							<c:if test="${user.jobNo==8||user.deptNo==4}">
+								<input type="button" value="发布" class="ui_input_btn01" id="addBtn" /> 
+								<input type="button" value="编辑" class="ui_input_btn01" id="editBtn" /> 
+							</c:if>
+							<c:if test="${user.deptNo==4}">
+								<input type="button" value="删除" class="ui_input_btn01" onclick="batchDel();" /> 
+							</c:if>
 							<!-- <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
 						</div>
 					</div>
@@ -59,7 +62,7 @@
 							<th>职位描述</th>
 							<th>工作地址</th>
 							<th>招聘截止日期</th>
-							<th>操作</th>
+							<c:if test="${empty user}"><th>操作</th></c:if>
 						</tr>
 						  <c:forEach items="${zpxx}" var="ps"  varStatus="i">
 							<tr>
@@ -71,7 +74,9 @@
 								<td>${ps.description}</td>
 								<td>${ps.workAddr}</td>
 								<td><fmt:formatDate value="${ps.lastDate}" pattern="yyyy-MM-dd"/></td>
-								<td><input type="button" value="申请岗位" class="ui_input_btn01" onclick="apply();" /> </td>
+								<c:if test="${empty user}">
+									<td><input type="button" id="${ps.zpNo}" name="applyButton" value="申请岗位" class="ui_input_btn01" onclick="apply();" /> </td>
+								</c:if>
 							</tr>
 						  </c:forEach>
 					</table>
@@ -84,4 +89,11 @@
 	</form>
 	<jsp:include page="/common.jsp"></jsp:include>
   </body>
+  <script>
+	   var basePath = "<%=basePath%>";
+	   
+	   function apply(){
+		   location.href = basePath + "/apply?jobNo="+$("input[name=applyButton]").attr("id");
+		}
+	</script> 
 </html>

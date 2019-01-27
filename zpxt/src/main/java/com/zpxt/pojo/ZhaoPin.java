@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,8 +16,8 @@ public class ZhaoPin implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id@Column(length=20,name="zp_no")
-	private String zpNo;
+	@Id@Column(name="zp_no")@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int zpNo;
 	@Column(length=20,name="zp_dept")
 	private String zpDept;
 	@Column(length=20,name="zp_job")
@@ -36,10 +38,10 @@ public class ZhaoPin implements Serializable{
 	private int zpState;	
 	@Column(length=100,name="remark")
 	private String remark;
-	public String getZpNo() {
+	public int getZpNo() {
 		return zpNo;
 	}
-	public void setZpNo(String zpNo) {
+	public void setZpNo(int zpNo) {
 		this.zpNo = zpNo;
 	}
 	public String getZpDept() {

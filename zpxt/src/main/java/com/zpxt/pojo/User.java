@@ -1,16 +1,15 @@
 package com.zpxt.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_user")
-//@IdClass(value =com.zpxt.pojo.)
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -27,17 +26,33 @@ public class User implements Serializable{
 	private String work;
 	@Column(length=100,name="xueli")
 	private String xueli;
-	@Column(length=20,name="user_dept")
-	private String deptNo;
-	@Column(length=20,name="user_job")
-	private String jobNo;
+	@Column(name="user_dept")
+	private int deptNo;
+	@Column(name="user_job")
+	private int jobNo;
 	@Column(length=20,name="user_interview")
 	private String interviewNo;
 	@Column(length=50,name="user_email")
 	private String email;
 	@Column(name="user_state")
 	private int state;
+	@Column(name="lzsq_time")
+	private Date lzsqTime;
+	@Column(name="lz_time")
+	private Date lzTime;
 	
+	public Date getLzsqTime() {
+		return lzsqTime;
+	}
+	public void setLzsqTime(Date lzsqTime) {
+		this.lzsqTime = lzsqTime;
+	}
+	public Date getLzTime() {
+		return lzTime;
+	}
+	public void setLzTime(Date lzTime) {
+		this.lzTime = lzTime;
+	}
 	public String getUserNo() {
 		return userNo;
 	}
@@ -74,16 +89,16 @@ public class User implements Serializable{
 	public void setXueli(String xueli) {
 		this.xueli = xueli;
 	}
-	public String getDeptNo() {
+	public int getDeptNo() {
 		return deptNo;
 	}
-	public void setDeptNo(String deptNo) {
+	public void setDeptNo(int deptNo) {
 		this.deptNo = deptNo;
 	}
-	public String getJobNo() {
+	public int getJobNo() {
 		return jobNo;
 	}
-	public void setJobNo(String jobNo) {
+	public void setJobNo(int jobNo) {
 		this.jobNo = jobNo;
 	}
 	public String getInterviewNo() {
@@ -106,3 +121,4 @@ public class User implements Serializable{
 	}
 	
 }
+
