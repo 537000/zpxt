@@ -19,7 +19,6 @@
 <script type="text/javascript" src="<%=basePath%>/scripts/artDialog/artDialog.js?skin=default"></script>
 <script type="text/javascript" src="<%=basePath %>/js/store/storeList.js"></script>
 <script type="text/javascript" src="<%=basePath %>/My97DatePicker/WdatePicker.js"></script>
-<title>样衣库存</title>
 <style>
 	.alt td{ background:black !important;}
 </style>
@@ -31,12 +30,7 @@
 			<div class="ui_content">
 				<div class="ui_text_indent">
 					<div id="box_border">
-						<div id="box_center">
-						    员工姓名&nbsp;&nbsp;<input type="text" id="userName" name="userName" class="ui_input_txt02" value="${job}"/>
-						</div>
 						<div id="box_bottom">
-							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
-							<!-- <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
 						</div>
 					</div>
 				</div>
@@ -74,6 +68,9 @@
 								</c:if>
 								<c:if test="${ps.state==99}">
 									<td>离职申请中</td>
+								</c:if>
+									<c:if test="${ps.state==99}">
+									<td>试用期</td>
 								</c:if>
 							</tr>
 						  </c:forEach>

@@ -41,8 +41,27 @@ public class Interview implements Serializable{
 	private String ypzw;
 	private String ypbm;
 	private Double zpgz;
+	@Column(length=100,name="sex")
 	private char sex;
 	private int state;
+	
+	@Column(length=100,name="byyx")
+	private String byyx; //毕业院校
+	@Column(length=100,name="xl")
+	private String xl; //学历 本科专科硕士博士高中
+	
+	public String getXl() {
+		return xl;
+	}
+	public void setXl(String xl) {
+		this.xl = xl;
+	}
+	public String getByyx() {
+		return byyx;
+	}
+	public void setByyx(String byyx) {
+		this.byyx = byyx;
+	}
 
 	public String getHope() {
 		return hope;

@@ -32,6 +32,10 @@ public interface UserRepository extends JpaRepository<User, String> {
 	@Modifying
 	@Query("update User u set u.lzTime=?2,u.state=?3 where u.userNo = ?1") 
 	public void lzPass(String userNo, Date spTime, int ygLz);
+	
+	@Modifying
+	@Query("update User u set u.lzTime=?2,u.state=?3 where u.userNo = ?1") 
+	public void zzPass(String userNo, Date spTime, int ygLz);
 
 	public List<User> findByState(int ygLzsq);
 

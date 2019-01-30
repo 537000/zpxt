@@ -1,6 +1,7 @@
 package com.zpxt.service;
 
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -67,6 +68,7 @@ public class ZhaoPinService {
 				fo.setLastDate(zhaoPin.getLastDate());
 				fo.setZpNo(zhaoPin.getZpNo());
 				fo.setZpOwn(zhaoPin.getZpOwn());
+				fo.setZpState(zhaoPin.getZpState());
 				list.add(fo);
 			}
 		}
@@ -99,6 +101,9 @@ public class ZhaoPinService {
 				fo.setYpbm(dept.getDeptName());
 				fo.setYpzw(job.getJobName());
 				fo.setZpgz(interview.getZpgz());
+				fo.setSex(interview.getSex());
+				fo.setByyx(interview.getByyx());
+				fo.setXl(interview.getXl());
 				ll.add(fo);
 			}
 		}

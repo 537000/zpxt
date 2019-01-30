@@ -19,7 +19,7 @@
 <script type="text/javascript" src="<%=basePath%>/scripts/artDialog/artDialog.js?skin=default"></script>
 <script type="text/javascript" src="<%=basePath %>/js/store/storeList.js"></script>
 <script type="text/javascript" src="<%=basePath %>/My97DatePicker/WdatePicker.js"></script>
-<title>样衣库存</title>
+<title>离职申请</title>
 <style>
 	.alt td{ background:black !important;}
 </style>

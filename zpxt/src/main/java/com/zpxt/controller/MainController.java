@@ -57,6 +57,7 @@ public class MainController {
 		return "ygxx/ygxx_list";
 	}
 	
+	
 	@RequestMapping("query")
 	public String ygxx(String userName,Model model) {
 		List<User> ygxx = zhaoPinService.findByUserName(userName);

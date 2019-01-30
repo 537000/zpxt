@@ -18,6 +18,10 @@ public class ZhaoPinInfo implements Serializable{
 	private String zpOwn;
 	private int zpState;	
 	private String remark;
+	
+	
+	
+	
 	public int getZpNo() {
 		return zpNo;
 	}

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>进销存系统</title>
+<title>个人信息</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="<%=basePath %>/style/authority/basic_layout.css" rel="stylesheet" type="text/css">
 <link href="<%=basePath %>/style/authority/common_style.css" rel="stylesheet" type="text/css">

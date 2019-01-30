@@ -31,17 +31,14 @@
 			<div class="ui_content">
 				<div class="ui_text_indent">
 					<div id="box_border">
-						<div id="box_center">
-						     招聘职位&nbsp;&nbsp;<input type="text" id="job" name="job" class="ui_input_txt02" value="${job}"/>
-						     薪资范围&nbsp;&nbsp;<input type="text" id="money" name="money" class="ui_input_txt02" value="${money}"/>
-						</div>
 						<div id="box_bottom">
-							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
+							
 							<c:if test="${user.jobNo==8||user.deptNo==4}">
-								<input type="button" value="发布" class="ui_input_btn01" id="addBtn" /> 
-								<input type="button" value="编辑" class="ui_input_btn01" id="editBtn" /> 
+								<input type="button" value="发布" class="ui_input_btn01" id="addBtn1" onclick="addBtn()"  /> 
+								
 							</c:if>
 							<c:if test="${user.deptNo==4}">
+							    <input type="button" value="编辑" class="ui_input_btn01" id="editBtn" /> 
 								<input type="button" value="删除" class="ui_input_btn01" onclick="batchDel();" /> 
 							</c:if>
 							<!-- <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
@@ -62,6 +59,7 @@
 							<th>职位描述</th>
 							<th>工作地址</th>
 							<th>招聘截止日期</th>
+							<th>状态</th>
 							<c:if test="${empty user}"><th>操作</th></c:if>
 						</tr>
 						  <c:forEach items="${zpxx}" var="ps"  varStatus="i">
@@ -74,6 +72,12 @@
 								<td>${ps.description}</td>
 								<td>${ps.workAddr}</td>
 								<td><fmt:formatDate value="${ps.lastDate}" pattern="yyyy-MM-dd"/></td>
+								<c:if  test="${ps.zpState==2}" >
+									<td>已发布</td>
+								</c:if>
+								<c:if  test="${ps.zpState==1}" >
+									<td>待审核</td>
+								</c:if>
 								<c:if test="${empty user}">
 									<td><input type="button" id="${ps.zpNo}" name="applyButton" value="申请岗位" class="ui_input_btn01" onclick="apply();" /> </td>
 								</c:if>
@@ -95,5 +99,10 @@
 	   function apply(){
 		   location.href = basePath + "/apply?jobNo="+$("input[name=applyButton]").attr("id");
 		}
+	   
+	  function addBtn(){
+		  location.href = basePath + "/addzp";
+		  	  }
+	  
 	</script> 
 </html>

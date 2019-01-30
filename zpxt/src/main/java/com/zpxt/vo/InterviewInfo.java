@@ -23,6 +23,21 @@ public class InterviewInfo implements Serializable{
 	private Double zpgz;
 	private char sex;
 	private int state;
+	private String byyx;
+	
+	public String getByyx() {
+		return byyx;
+	}
+	public void setByyx(String byyx) {
+		this.byyx = byyx;
+	}
+	public String getXl() {
+		return xl;
+	}
+	public void setXl(String xl) {
+		this.xl = xl;
+	}
+	private String xl;
 
 	public String getHope() {
 		return hope;

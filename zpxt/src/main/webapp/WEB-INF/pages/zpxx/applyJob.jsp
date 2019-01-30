@@ -99,10 +99,7 @@
 					<td class="ui_text_lt">
 						<input type="text" id="school" name="school"  class="ui_input_txt02"/><font style="color: red;">*</font>
 					</td>
-					<td class="ui_text_rt">毕业时间</td>
-					<td class="ui_text_lt">
-						<input id="d11b" name="time" type="time" class="ui_input_txt02"/><font style="color: red;">*</font>
-					</td>
+				
 					
 						<td class="ui_text_rt">学历</td>
 					<td class="ui_text_lt">

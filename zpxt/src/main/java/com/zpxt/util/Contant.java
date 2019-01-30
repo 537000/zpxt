@@ -10,6 +10,8 @@ public class Contant {
 	public static final int YG_LZSQ = 99;
 	// 员工状态为离职
 	public static final int YG_LZ = 2;
+	// 员工状态为试用期
+	public static final int YG_SX = 3;
 	// 面试状态为应聘通过
 	public static final int YP_TG = 1;
 	// 面试状态为应聘不通过

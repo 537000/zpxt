@@ -48,12 +48,14 @@
 				<ul class="menuson" id=" menuson">
 				<li class="active"><cite></cite><a href="<%=basePath%>/showZpgwxx" target="frame-contect">岗位信息</a><i></i></li>
 					<c:if test="${not empty user}">
-						<li class="active"><cite></cite><a href="<%=basePath%>/myInfo" target="frame-contect">个人信息</a><i></i></li>
-						<li class="active"><cite></cite><a href="<%=basePath%>/ygxx" target="frame-contect">员工信息</a><i></i></li>
+						<li class="active"><cite></cite><a href="<%=basePath%>/myInfo" target="frame-contect">个人信息</a><i></i></li>		
 					</c:if>
 					<c:if test="${user.jobNo==8||user.deptNo==4}">
+						<li class="active"><cite></cite><a href="<%=basePath%>/ygxx" target="frame-contect">员工信息</a><i></i></li>
 						<li class="active"><cite></cite><a href="<%=basePath%>/lzsqlb" target="frame-contect">离职申请列表</a><i></i></li>
 						<li class="active"><cite></cite><a href="<%=basePath%>/ypxx" target="frame-contect">应聘信息</a><i></i></li>
+						<li class="active"><cite></cite><a href="<%=basePath%>/zzxx" target="frame-contect">转正列表</a><i></i></li>
+						<li class="active"><cite></cite><a href="<%=basePath%>/msxx" target="frame-contect"></a><i></i></li>
 					</c:if>
 				</ul>
 			</dd>

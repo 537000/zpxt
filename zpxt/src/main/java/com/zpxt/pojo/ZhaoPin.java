@@ -38,6 +38,7 @@ public class ZhaoPin implements Serializable{
 	private int zpState;	
 	@Column(length=100,name="remark")
 	private String remark;
+
 	public int getZpNo() {
 		return zpNo;
 	}

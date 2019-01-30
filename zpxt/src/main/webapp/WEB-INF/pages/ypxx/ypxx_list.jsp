@@ -31,12 +31,12 @@
 			<div class="ui_content">
 				<div class="ui_text_indent">
 					<div id="box_border">
-						<div id="box_center">
+					<%-- 	<div id="box_center">
 						     应聘职位&nbsp;&nbsp;<input type="text" id="job" name="job" class="ui_input_txt02" value="${job}"/>
-						</div>
+						</div> --%>
 						<div id="box_bottom">
-							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
-							<!-- <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
+							<!-- <input type="button" value="查询" class="ui_input_btn01" onclick="search();" />
+							 <input type="button" value="导出" class="ui_input_btn01" onclick="exportExcel();" /> -->
 						</div>
 					</div>
 				</div>
@@ -48,6 +48,14 @@
 							<th width="30"><input type="checkbox" id="all" onclick="selectOrClearAllCheckbox(this);" />
 							</th>
 							<th>应聘人</th>
+							
+						    <th>性别</th>
+						    <th>学历</th>
+							<th>毕业院校</th>
+							<th>联系方式</th>
+							<th>工作经历</th>
+							<th>邮箱</th>
+							
 							<th>应聘职位</th>
 							<th>应聘部门</th>
 							<th>期望薪资</th>
@@ -59,6 +67,14 @@
 							<tr>
 								<td><input type="checkbox" name="IDCheck" value="${ps.interviewNo}" class="acb" /></td>
 								<td>${ps.interviewUser}</td>
+								
+								<td>${ps.sex}</td>
+								<td>${ps.xl}</td>
+								<td>${ps.byyx}</td>
+								<td>${ps.telphone}</td>
+								<td>${ps.work}</td>
+								<td>${ps.email}</td>
+								
 								<td>${ps.ypzw}</td>
 								<td>${ps.ypbm}</td>
 								<td>${ps.hope}</td>
